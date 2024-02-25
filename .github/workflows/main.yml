@@ -18,6 +18,4 @@ jobs:
           args: >
               -Dsonar.organization=iranherr
               -Dsonar.projectKey=iranherr_devsecops
-              -Dsonar.python.coverage.reportPaths=coverage.xml
-              -Dsonar.host.url=https://sonarcloud.io'
               -Dsonar.projectName=devsecops
