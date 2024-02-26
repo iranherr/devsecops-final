@@ -10,6 +10,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/Analitics-SAST.yml
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows
       - run: npm run style:check
       - run: npm test
