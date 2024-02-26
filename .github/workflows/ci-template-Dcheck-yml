@@ -9,7 +9,7 @@ name: DependencyCheck
 run-name: ${{inputs.run-name}}
 
 jobs:
-  DependencyCheck:
+  SCA-DCheck:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
