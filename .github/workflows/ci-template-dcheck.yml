@@ -3,7 +3,8 @@ on:
     inputs:
       run-name:
         required: false
-        type: string        
+        type: string
+               
 name: DependencyCheck
 run-name: ${{inputs.run-name}}
 
