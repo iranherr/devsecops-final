@@ -1,5 +1,4 @@
-run-name: Analisis Sast 
-
+run-name: main
 on:
   push: 
     branches: 
@@ -11,5 +10,5 @@ jobs:
   Vulnerabilidad-SAST:
     uses: ./.github/workflows/ci-template-sast.yml
     with:
-      run-name: "Analisis_SAST"
+      run-name: "mainT"
     secrets: inherit  
