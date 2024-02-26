@@ -2,7 +2,7 @@ run-name: Analisis Sast
 
 on:
   push:
-    branches:
+    branches: 
       - main
   pull_request:
     types: [opened, synchronize, reopened]
