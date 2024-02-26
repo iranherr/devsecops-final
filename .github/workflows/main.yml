@@ -15,7 +15,6 @@ jobs:
     secrets: inherit
   
   DependencyCheck:
-    needs: SAST
     uses: ./.github/workflows/ci-template-dcheck.yml
     with:
       run-name: "Dependency Check"
@@ -26,4 +25,11 @@ jobs:
     uses: ./.github/workflows/ci-build-docker.yml
     with:
       run-name: "Build Docker"
-    secrets: inherit    
+    secrets: inherit
+  
+  ImageSecurity:
+    needs: Docker_buid
+    uses: ./.github/workflows/ci-image-security.yml
+    with:
+      run-name: "ImageSecurity"
+    secrets: inherit
