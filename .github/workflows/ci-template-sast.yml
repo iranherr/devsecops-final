@@ -6,7 +6,7 @@ on:
         default: 'Running SAST'
         type: string        
 
-name: Vulnetabilidad-SAST
+name: Vulnerabilidad-SAST
 run-name: ${{inputs.run-name}}
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
             fetch-depth: 0
-      - name: Análisis-SAST
+      - name: Analisis_SAST
         uses: sonarsource/sonarcloud-github-action@master
         env:
             GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}

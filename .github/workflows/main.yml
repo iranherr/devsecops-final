@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  Vulnetabilidad-SAST:
+  Vulnerabilidad-SAST:
     uses: ./.github/workflows/ci-template-sast.yml
     with:
       run-name: "Análisis Sast"
