@@ -1,4 +1,5 @@
-name: CI
+run-name: Workflow Análisis 
+
 on:
   push:
     branches:
@@ -6,46 +7,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened] 
 jobs:
-  AnalisisSAST:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-            fetch-depth: 0
-      - name: Análisis SAST
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-            GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  
-  DependencyCheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-            fetch-depth: 0
-            
-      - name: Dependency Check
-        uses: dependency-check/Dependency-Check_Action@main
-        with:
-          project: 'devsecops'
-          path: '.'
-          format: 'HTML'
-          
-      - name: Reporte de resultados
-        uses: actions/upload-artifact@master
-        with:
-           name: Dependency report
-           path: ${{github.workspace}}/reports
-
-      - name: Docker
-        uses: docker/login-action@v3.0.0
-        with:
-          username: ${{ secrets.DOCKER_SECRETS_USER }}
-          password: ${{ secrets.DOCKER_SECRETS_PASS }}
-          
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: iliberona/devsecops:latest
+  SAST:
+    uses: ./.github/workflows/ci/template-sast.yml
+    with:
+      run-name: "Análisis de Código"
+    secrets: inherit  
