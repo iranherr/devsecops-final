@@ -1,4 +1,4 @@
-run-name: main 
+run-name: Build 
 
 on:
   push:
@@ -6,9 +6,10 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened] 
+    
 jobs:
-  SAST:
-    uses: ./.github/workflows/SAST.yml
+  analisis-SAST:
+    uses: ./.github/workflows/ci-template-sast.yml
     with:
       run-name: "Análisis de Código"
     secrets: inherit  

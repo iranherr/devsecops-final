@@ -3,19 +3,19 @@ on:
     inputs:
       run-name:
         required: false
-        description: 'Analisis de código'
         default: 'Running SAST'
         type: string        
-name: SAST
+name: analisis-SAST
 run-name: ${{inputs.run-name}}
+
 jobs:
-  A_SAST:
+  Analisis_SAST:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
             fetch-depth: 0
-      - name: AnálisisSAST
+      - name: Análisis-SAST
         uses: sonarsource/sonarcloud-github-action@master
         env:
             GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
