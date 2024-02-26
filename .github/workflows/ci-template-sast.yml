@@ -4,11 +4,9 @@ on:
       run-name:
         required: false
         default: 'Running SAST'
-        type: string
-
-name: Vulnerabilidad-SAST
+        type: string        
+name: SAST
 run-name: ${{inputs.run-name}}
-
 jobs:
   A_SAST:
     runs-on: ubuntu-latest
