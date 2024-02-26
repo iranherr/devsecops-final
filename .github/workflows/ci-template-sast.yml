@@ -3,6 +3,7 @@ on:
     inputs:
       run-name:
         required: false
+        description: 'Analisis de código'
         default: 'Running SAST'
         type: string        
 name: SAST
