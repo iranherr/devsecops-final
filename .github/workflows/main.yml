@@ -5,10 +5,11 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened] 
+    types: [opened, synchronize, reopened]
+
 jobs:
   SAST:
-    uses: ./.github/workflows/ci/template-sast.yml
+    uses: ./.github/workflows/ci-template-sast.yml
     with:
       run-name: "Análisis de Código"
     secrets: inherit  
