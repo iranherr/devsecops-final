@@ -4,19 +4,19 @@ on:
       run-name:
         required: false
         default: 'Running SAST'
-        type: string        
+        type: string
 
 name: Vulnerabilidad-SAST
 run-name: ${{inputs.run-name}}
 
 jobs:
-  Analisis_SAST:
+  A_SAST:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
             fetch-depth: 0
-      - name: Analisis_SAST
+      - name: AnálisisSAST
         uses: sonarsource/sonarcloud-github-action@master
         env:
             GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
