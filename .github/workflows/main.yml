@@ -20,3 +20,10 @@ jobs:
     with:
       run-name: "Dependency Check"
     secrets: inherit  
+  
+  Docker_buid:
+    needs: DependencyCheck
+    uses: ./.github/workflows/ci-build-docker.yml
+    with:
+      run-name: "Build Docker"
+    secrets: inherit    
