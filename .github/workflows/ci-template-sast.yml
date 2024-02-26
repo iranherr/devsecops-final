@@ -5,7 +5,7 @@ on:
         required: false
         default: 'Running SAST'
         type: string        
-name: analisis-SAST
+name: SAST
 run-name: ${{inputs.run-name}}
 
 jobs:
