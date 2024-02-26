@@ -11,11 +11,12 @@ jobs:
   SAST:
     uses: ./.github/workflows/ci-template-sast.yml
     with:
-      run-name: "Análisis de Código"
+      run-name: "SAST"
     secrets: inherit
   
   DependencyCheck:
+    needs: SAST
     uses: ./.github/workflows/ci-template-dcheck.yml
     with:
-      run-name: "Análisis de Código"
+      run-name: "Dependency Check"
     secrets: inherit  

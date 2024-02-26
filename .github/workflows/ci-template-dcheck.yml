@@ -3,7 +3,6 @@ on:
     inputs:
       run-name:
         required: false
-        default: 'Running SAST'
         type: string        
 name: DependencyCheck
 run-name: ${{inputs.run-name}}
@@ -23,7 +22,7 @@ jobs:
             path: '.'
             format: 'HTML'
             
-        - name: Reporte de resultados
+        - name: Resultado de reporte
           uses: actions/upload-artifact@master
           with:
              name: Dependency report
