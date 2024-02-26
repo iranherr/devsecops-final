@@ -15,7 +15,7 @@ jobs:
     secrets: inherit
   
   DependencyCheck:
-    uses: ./.github/workflows/ci-template-Dcheck.yml
+    uses: ./.github/workflows/ci-template-dcheck-yml
     with:
       run-name: "Análisis de Código"
     secrets: inherit  
