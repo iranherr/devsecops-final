@@ -10,8 +10,11 @@ run-name: ${{inputs.run-name}}
 
 jobs:
   ImageSecurity:
-    uses: aquasecurity/trivy-action@master
-    with:
-        image-ref: 'iliberona/devsecops:latest'
-        format: 'table'
-        #exit-code: 1 #Si se presentan vulnerabilidades altas o medias, no se realiza el push al repositorio dockerhub. 
+    runs-on: ubuntu-latest
+    steps:
+      - name: ImageSecurity
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'iliberona/devsecops:latest'
+          format: 'table'
+          #exit-code: 1 #Si se presentan vulnerabilidades altas o medias, no se realiza el push al repositorio dockerhub. 
