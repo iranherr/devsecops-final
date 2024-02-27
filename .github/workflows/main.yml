@@ -39,6 +39,7 @@ jobs:
     uses: ./.github/workflows/ci-push-docker.yml
     with:
       run-name: "Push Docker"
+    secrets: inherit
 
  # Deploy:
   #  needs: ScannerImage

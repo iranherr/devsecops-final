@@ -5,13 +5,22 @@ on:
         required: false
         type: string
 
-name: Docker_push
+name: Docker_buid
 run-name: ${{inputs.run-name}}
 
 jobs:
   push:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
+      - uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
+      - name: Docker
+        uses: docker/login-action@v3.0.0
+        with:
+          username: ${{ secrets.DOCKER_SECRETS_USER }}
+          password: ${{ secrets.DOCKER_SECRETS_PASS }}
+
       - name: Push Docker
         run: |
-          docker push iliberona/devsecops
+          docker push --tag iliberona/devsecops
