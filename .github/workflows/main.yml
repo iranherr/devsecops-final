@@ -34,7 +34,7 @@ jobs:
       run-name: "Image Security"
     secrets: inherit 
 
-  #Docker_push:
+ # Docker_push:
    # needs: ScannerImage
     #uses: ./.github/workflows/ci-push-docker.yml
     #with:
