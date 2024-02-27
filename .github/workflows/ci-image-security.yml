@@ -5,7 +5,7 @@ on:
         required: false
         type: string
 
-name: ImageSecurity
+name: ScannerImage
 run-name: ${{inputs.run-name}}
 
 jobs:

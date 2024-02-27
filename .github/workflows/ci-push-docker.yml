@@ -1,0 +1,17 @@
+on:
+    workflow_call:
+      inputs:
+        run-name:
+          required: false
+          type: string
+  
+  name: Docker_push
+  run-name: ${{inputs.run-name}}
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Push Docker
+    run: |
+        docker push iliberona/devsecops 

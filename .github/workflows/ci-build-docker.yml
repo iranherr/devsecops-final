@@ -9,7 +9,7 @@ name: Docker_buid
 run-name: ${{inputs.run-name}}
 
 jobs:
-  Docker_buid:
+  buid:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
