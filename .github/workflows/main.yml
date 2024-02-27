@@ -20,19 +20,19 @@ jobs:
       run-name: "Dependency Check"
     secrets: inherit  
   
-  Docker_buid:
+  DockerImage:
     needs: [SAST, DependencyCheck]
     uses: ./.github/workflows/ci-build-docker.yml
     with:
       run-name: "Build Docker"
     secrets: inherit
   
-  ScannerImage:
-    needs: Docker_buid
-    uses: ./.github/workflows/ci-image-security.yml
-    with:
-      run-name: "Image Security"
-    secrets: inherit 
+  #ScannerImage:
+   # needs: Docker_buid
+   # uses: ./.github/workflows/ci-image-security.yml
+   # with:
+   #   run-name: "Image Security"
+   # secrets: inherit 
 
  # Docker_push:
    # needs: ScannerImage
