@@ -21,7 +21,7 @@ jobs:
     secrets: inherit  
   
   Docker_buid:
-    needs: DependencyCheck
+    needs: [SAST, DependencyCheck]
     uses: ./.github/workflows/ci-build-docker.yml
     with:
       run-name: "Build Docker"
