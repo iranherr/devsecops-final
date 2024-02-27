@@ -18,3 +18,7 @@ jobs:
       - name: Push Docker
         run: |
           docker push --tag iliberona/devsecops-final
+      
+      - name: Build Docker
+        run: |
+          docker build --tag iliberona/devsecops-final:latest .
