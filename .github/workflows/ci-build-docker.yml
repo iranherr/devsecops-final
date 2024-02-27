@@ -5,7 +5,7 @@ on:
         required: false
         type: string
 
-name: DockerImage
+name: Docker
 run-name: ${{inputs.run-name}}
 
 jobs:
@@ -24,17 +24,21 @@ jobs:
       - name: Build Docker
         run: |
           docker build --tag iliberona/devsecops-final:latest .
-
-  ScannerImage:
+  
+  ImageSecurity:
     needs: Buid
-    uses: ./.github/workflows/ci-image-security.yml
-    with:
-      run-name: "Image Security"
-    secrets: inherit 
+    runs-on: ubuntu-latest
+    steps:
+      - name: ImageSecurity
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'iliberona/devsecops-final:latest'
+          format: 'table'
+          #exit-code: 1 #Si se presentan vulnerabilidades altas o medias, no se realiza el push al repositorio dockerhub. 
   
   Push:
+    needs: ImageSecurity
     runs-on: ubuntu-latest
-    needs: ScannerImage
     steps:
       - name: Push Docker
         run: |
