@@ -1,0 +1,21 @@
+on:
+    workflow_call:
+      inputs:
+        run-name:
+          required: false
+          type: string
+name: Deploy
+run-name: ${{inputs.run-name}}
+
+jobs:
+    Deploy:
+        runs-on: self-hosted
+
+        steps:
+        - name: Pull Image Docker
+          run: |
+            docker pull iliberona/devsecops:latest
+
+        - name: Liberacion
+          run: |
+             docker run -p 8085:8085 --name iliberona-deploy -d iliberona/devsecops:latest
