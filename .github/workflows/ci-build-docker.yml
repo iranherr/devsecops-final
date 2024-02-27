@@ -23,7 +23,7 @@ jobs:
   
       - name: Build Docker
         run: |
-          docker build --tag iliberona/devsecops-final:latest .
+          docker build --tag iliberona/devsecops:latest .
   
   ImageSecurity:
     needs: Buid
@@ -32,7 +32,7 @@ jobs:
       - name: ImageSecurity
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'iliberona/devsecops-final:latest'
+          image-ref: 'iliberona/devsecops:latest'
           format: 'table'
           #exit-code: 1 #Si se presentan vulnerabilidades altas o medias, no se realiza el push al repositorio dockerhub. 
   
@@ -42,4 +42,4 @@ jobs:
     steps:
       - name: Push Docker
         run: |
-          docker push iliberona/devsecops-final
+          docker push iliberona/devsecops
