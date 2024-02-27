@@ -24,3 +24,13 @@ jobs:
       - name: Build Docker
         run: |
           docker build --tag iliberona/devsecops:latest .
+
+      - name: Image Security
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'iliberona/devsecops:latest'
+          format: 'table'
+      
+      - name: Push Docker
+        run: |
+          docker push iliberona/devsecops

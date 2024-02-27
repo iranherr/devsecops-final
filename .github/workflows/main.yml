@@ -27,12 +27,12 @@ jobs:
       run-name: "Build Docker"
     secrets: inherit
   
-  ScannerImage:
-    needs: Docker_buid
-    uses: ./.github/workflows/ci-image-security.yml
-    with:
-      run-name: "Image Security"
-    secrets: inherit 
+ # ScannerImage:
+  #  needs: Docker_buid
+   # uses: ./.github/workflows/ci-image-security.yml
+    #with:
+     # run-name: "Image Security"
+    #secrets: inherit 
 
  # Docker_push:
   #  needs: ScannerImage
@@ -41,9 +41,9 @@ jobs:
      # run-name: "Push Docker"
     #secrets: inherit
 
-  Deploy:
-    needs: ScannerImage
-    uses: ./.github/workflows/cd-deploy-typescript.yml
-    with:
-      run-name: "Deploy"
-    secrets: inherit 
+ # Deploy:
+  #  needs: ScannerImage
+   # uses: ./.github/workflows/cd-deploy-typescript.yml
+    #with:
+     # run-name: "Deploy"
+    #secrets: inherit 
