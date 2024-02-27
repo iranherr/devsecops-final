@@ -18,7 +18,3 @@ jobs:
           image-ref: 'iliberona/devsecops:latest'
           format: 'table'
           #exit-code: 1 #Si se presentan vulnerabilidades altas o medias, no se realiza el push al repositorio dockerhub. 
-      
-      - name: Push Docker
-        run: |
-            docker push iliberona/devsecops

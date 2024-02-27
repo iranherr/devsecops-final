@@ -9,7 +9,7 @@ name: Docker_push
 run-name: ${{inputs.run-name}}
 
 jobs:
-  Push:
+  push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_SECRETS_USER }}
           password: ${{ secrets.DOCKER_SECRETS_PASS }}
-
+      
       - name: Push Docker
         run: |
-            docker push iliberona/devsecops
+          docker push iliberona/devsecops
