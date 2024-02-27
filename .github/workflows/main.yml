@@ -42,7 +42,7 @@ jobs:
     #secrets: inherit
 
   Deploy:
-    needs: Docker_buid
+    needs: ScannerImage
     uses: ./.github/workflows/cd-deploy-typescript.yml
     with:
       run-name: "Deploy"
