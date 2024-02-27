@@ -18,4 +18,4 @@ jobs:
 
         - name: Liberacion
           run: |
-             docker run -p 8085:8085 --name iliberona-deploy -d iliberona/devsecops:latest
+             docker run -p 8085:8085 --name iliberona-deploy -d iliberona/devsecops-final:latest
