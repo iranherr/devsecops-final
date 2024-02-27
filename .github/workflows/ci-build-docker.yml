@@ -1,4 +1,4 @@
-on:
+on: 
   workflow_call:
     inputs:
       run-name:
@@ -26,10 +26,7 @@ jobs:
           docker build --tag iliberona/devsecops:latest .
   
       - name: ImageSecurity
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'iliberona/devsecops:latest'
-          format: 'table'
+        uses: ./.github/workflows/ci-image-security.yml
           #exit-code: 1 #Si se presentan vulnerabilidades altas o medias, no se realiza el push al repositorio dockerhub. 
 
       - name: Push Docker
