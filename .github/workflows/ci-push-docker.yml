@@ -2,7 +2,7 @@ on:
   workflow_call:
     inputs:
       run-name:
-        required: false
+        required: true
         type: string
 
 name: Docker_push
@@ -10,20 +10,20 @@ run-name: ${{inputs.run-name}}
 
 jobs:
   Push:
-    
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: docker login
-        env:
-          DOCKER_USER: ${{secrets.DOCKER_SECRETS_USER}}
-          DOCKER_PASSWORD: ${{secrets.DOCKER_SECRETS_PASS}}
-          repository: iliberona/devsecops-final:latest
-        run: |
-          docker login -u $DOCKER_SECRETS_USER -p $DOCKER_SECRETS_PASS
+      - uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
+      - name: Docker
+        uses: docker/login-action@v3.0.0
+        with:
+          username: ${{ secrets.DOCKER_SECRETS_USER }}
+          password: ${{ secrets.DOCKER_SECRETS_PASS }}
+  
+      - name: Push Docker
 
-      - name: List images
-        run: docker images    
-      - name: Docker Push
-        run: docker push ${{secrets.DOCKER_SECRETS_USER}}/devsecops-final:latest
+        run: |
+          docker push iliberona/devsecops-final
+  
 
