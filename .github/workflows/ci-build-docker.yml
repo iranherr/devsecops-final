@@ -9,7 +9,7 @@ name: DockerImage
 run-name: ${{inputs.run-name}}
 
 jobs:
-  Build:
+  Docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

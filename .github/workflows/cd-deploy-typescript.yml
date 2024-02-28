@@ -4,6 +4,7 @@ on:
         run-name:
           required: false
           type: string
+          
 name: Deploy
 run-name: ${{inputs.run-name}}
 

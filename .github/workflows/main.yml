@@ -1,4 +1,4 @@
-run-name: ${{ github.actor }} Build 
+run-name: ${{ github.actor }} CICD 
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
     with:
       run-name: "Dependency Check"
     secrets: inherit  
-
+     
   DockerImage:
     needs: [Analisis-SAST, Analisis-SCA]
     uses: ./.github/workflows/ci-build-docker.yml
@@ -42,9 +42,9 @@ jobs:
       #run-name: "Push Docker"
     #secrets: inherit
 
-  #Deploy:
-    #needs: Docker_push
-    #uses: ./.github/workflows/cd-deploy-typescript.yml
-    #with:
-      #run-name: "Deploy"
-    #secrets: inherit 
+  Deploy:
+    needs: DockerImage
+    uses: ./.github/workflows/cd-deploy-typescript.yml
+    with:
+      run-name: "Deploy"
+    secrets: inherit 
