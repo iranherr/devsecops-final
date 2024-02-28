@@ -23,4 +23,4 @@ jobs:
 
       - name: Push Docker
         run: |
-          docker push iliberona/devsecops-final
+          docker push iliberona/devsecops-final:latest
