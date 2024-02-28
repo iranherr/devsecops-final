@@ -43,7 +43,7 @@ jobs:
     #secrets: inherit
 
   Deploy:
-    needs: Docker_push
+    needs: DockerImage
     uses: ./.github/workflows/cd-deploy-typescript.yml
     with:
       run-name: "Deploy"
