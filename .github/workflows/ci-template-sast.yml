@@ -4,12 +4,13 @@ on:
       run-name:
         required: false
         default: 'Running SAST'
-        type: string        
-name: SAST
+        type: string
+                
+name: Analisis-SAST
 run-name: ${{inputs.run-name}}
 
 jobs:
-  Analisis_SAST:
+  SAST:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

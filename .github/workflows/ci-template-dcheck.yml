@@ -5,11 +5,11 @@ on:
         required: false
         type: string
                
-name: DependencyCheck
+name: Analisis-SCA
 run-name: ${{inputs.run-name}}
 
 jobs:
-  SCA-DCheck:
+    DCheck:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4

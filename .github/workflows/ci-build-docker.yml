@@ -5,11 +5,11 @@ on:
         required: false
         type: string
 
-name: Docker
+name: DockerImage
 run-name: ${{inputs.run-name}}
 
 jobs:
-  Buid:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

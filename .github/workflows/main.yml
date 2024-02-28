@@ -8,38 +8,38 @@ on:
     types: [opened, synchronize, reopened] 
 
 jobs:
-  SAST:
+  Analisis-SAST:
     uses: ./.github/workflows/ci-template-sast.yml
     with:
       run-name: "SAST"
     secrets: inherit
   
-  DependencyCheck:
+  Analisis-SCA:
     uses: ./.github/workflows/ci-template-dcheck.yml
     with:
       run-name: "Dependency Check"
     secrets: inherit  
   
-  Docker:
+  DockerImage:
     needs: [SAST, DependencyCheck]
     uses: ./.github/workflows/ci-build-docker.yml
     with:
       run-name: "Build Docker"
     secrets: inherit
   
-  #ScannerImage:
-   # needs: Docker_buid
-   # uses: ./.github/workflows/ci-image-security.yml
-   # with:
-   #   run-name: "Image Security"
-   # secrets: inherit 
+  ScannerImage:
+    needs: Docker_buid
+    uses: ./.github/workflows/ci-image-security.yml
+    with:
+      run-name: "Image Security"
+    secrets: inherit 
 
- # Docker_push:
-   # needs: ScannerImage
-    #uses: ./.github/workflows/ci-push-docker.yml
-    #with:
-     # run-name: "Push Docker"
-    #secrets: inherit
+  Docker_push:
+    needs: ScannerImage
+    uses: ./.github/workflows/ci-push-docker.yml
+    with:
+      run-name: "Push Docker"
+    secrets: inherit
 
   Deploy:
     needs: Docker
