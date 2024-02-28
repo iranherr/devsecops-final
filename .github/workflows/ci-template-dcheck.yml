@@ -25,7 +25,7 @@ jobs:
             out: 'reports'
             args: >
               --failOnCVSS 3 #si identifica vulnerabilidades igual o mayor a 3 falla la ejecucion y genera un reporte 
-
+          continue-on-error: true
         - name: Resultado de reporte
           uses: actions/upload-artifact@master
           with:

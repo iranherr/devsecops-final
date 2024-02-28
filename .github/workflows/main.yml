@@ -19,7 +19,7 @@ jobs:
     with:
       run-name: "Dependency Check"
     secrets: inherit  
-  
+
   DockerImage:
     needs: [Analisis-SAST, Analisis-SCA]
     uses: ./.github/workflows/ci-build-docker.yml
