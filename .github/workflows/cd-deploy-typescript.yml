@@ -4,7 +4,7 @@ on:
         run-name:
           required: false
           type: string
-          
+
 name: Deploy
 run-name: ${{inputs.run-name}}
 
@@ -15,7 +15,7 @@ jobs:
         steps:
         - name: Pull Image Docker
           run: |
-            docker pull iliberona/devsecops:latest
+            docker pull iliberona/devsecops-final:latest
 
         - name: Liberacion
           run: |
