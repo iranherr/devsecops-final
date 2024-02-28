@@ -41,9 +41,9 @@ jobs:
       #run-name: "Push Docker"
     #secrets: inherit
 
-  Deploy:
-    needs: Docker_push
-    uses: ./.github/workflows/cd-deploy-typescript.yml
-    with:
-      run-name: "Deploy"
-    secrets: inherit 
+  #Deploy:
+    #needs: Docker_push
+    #uses: ./.github/workflows/cd-deploy-typescript.yml
+    #with:
+      #run-name: "Deploy"
+    #secrets: inherit 
