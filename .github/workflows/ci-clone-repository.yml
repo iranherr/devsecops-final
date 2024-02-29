@@ -24,3 +24,4 @@ jobs:
       run: |
         cd final-lab
         ls -la
+        cp -R devsecops-final
