@@ -25,5 +25,5 @@ jobs:
         ls -la
         pwd
         cp -R * /home/runner/work/devsecops-final/devsecops-final/
-        cd /home/runner/work/devsecops-final/devsecops-final/
+        cd /home/runner/work/devsecops-final/devsecops-final/final-lab
         ls -la
