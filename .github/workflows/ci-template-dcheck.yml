@@ -23,8 +23,8 @@ jobs:
             path: '.'
             format: 'HTML'
             out: 'reports'
-            #args: > #argumento para detener pipeline en caso de encontrar vulnerabilidades
-              #--failOnCVSS 3 #si identifica vulnerabilidades igual o mayor a 3 falla la ejecucion y genera un reporte 
+            #args: > #argumento para detener pipeline en caso de encontrar vulnerabilidades si identifica vulnerabilidades igual o mayor a 3 falla la ejecucion y genera un reporte
+              #--failOnCVSS 3 
 
         - name: Resultado de reporte
           uses: actions/upload-artifact@master

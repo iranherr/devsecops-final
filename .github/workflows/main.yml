@@ -9,19 +9,27 @@ on:
     types: [opened, synchronize, reopened] 
 
 jobs:
+  Clone-repository:
+    uses: ./.github/workflows/ci-clone-repository.yml
+    with:
+      run-name: "Clone"
+    secrets: inherit
+
   Analisis-SAST:
+    needs: Clone-repository
     uses: ./.github/workflows/ci-template-sast.yml
     with:
       run-name: "SAST"
     secrets: inherit
   
   Analisis-SCA:
+    needs: Clone-repository
     uses: ./.github/workflows/ci-template-dcheck.yml
     with:
       run-name: "Dependency Check"
     secrets: inherit  
      
-  DockerImage:
+  Docker-Scanner:
     needs: [Analisis-SAST, Analisis-SCA]
     uses: ./.github/workflows/ci-build-docker.yml
     with:
@@ -42,9 +50,9 @@ jobs:
 #      run-name: "Push Docker"
 #    secrets: inherit
 
-  #Deploy:
-    #needs: DockerImage
-    #uses: ./.github/workflows/cd-deploy-typescript.yml
-    #with:
-      #run-name: "Deploy"
-    #secrets: inherit 
+  Deploy:
+    needs: Docker-Scanner
+    uses: ./.github/workflows/cd-deploy-typescript.yml
+    with:
+      run-name: "Deploy"
+    secrets: inherit 
