@@ -9,19 +9,18 @@ name: Clone-repository
 run-name: ${{inputs.run-name}}
 
 jobs:  
-  test:
+  Clone:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Clone repositorio
+    - name: Clone repository
       uses: GuillaumeFalourd/clone-github-repo-action@v2.1
       with:
         depth: 1
-        branch: 'main'
+        branch: 'feature'
         owner: 'DevSecOps-Ciclo-7'
         repository: 'final-lab'
         
     - name: Acceso al repositorio
       run: |
-        cd devsecops-final
+        cd final-lab
         ls -la
