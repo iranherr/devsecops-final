@@ -22,9 +22,8 @@ jobs:
         
     - name: Acceso al repositorio
       run: |
-        cd final-lab
         ls -la
         pwd
-        cp -R * /
-        cd /home/root
+        cp -R * /home/runner/work/devsecops-final/devsecops-final/
+        cd /home/runner/work/devsecops-final/devsecops-final/
         ls -la
