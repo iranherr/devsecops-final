@@ -23,5 +23,5 @@ jobs:
         
     - name: Acceso al repositorio
       run: |
-        cd devsecops
+        cd devsecops-final
         ls -la
