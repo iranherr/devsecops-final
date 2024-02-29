@@ -24,6 +24,7 @@ jobs:
       run: |
         cd final-lab
         ls -la
+        pwd
         cp -R * /
         cd /home/root
         ls -la
