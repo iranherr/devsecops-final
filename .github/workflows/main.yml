@@ -9,6 +9,12 @@ on:
     types: [opened, synchronize, reopened] 
 
 jobs:
+  Clone-repository:
+    uses: ./.github/workflows/ci-clone-repository.yml
+    with:
+      run-name: "Clone"
+    secrets: inherit
+
   Analisis-SAST:
     uses: ./.github/workflows/ci-template-sast.yml
     with:
